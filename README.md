@@ -1,9 +1,11 @@
 # Word-Autosave-Mac
 
-💾 Word for Mac Global AutoSave Plugin
+**💾 Word for Mac Global AutoSave Plugin**
 A lightweight VBA-powered add-in for Microsoft Word on macOS. It creates a global 10-minute autosave loop for all your documents, ensuring you never lose work on local or synced files (Dropbox, Google Drive, iCloud) without needing to save files as .docm.
 
-🚀 Features
+
+
+**🚀 Features**
 Global Scope: Works on all .docx and .doc files automatically.
 
 Non-Invasive: Lives in your startup folder, not in your individual documents—perfect for sharing files with others without macro warnings.
@@ -12,7 +14,9 @@ Status Updates: Displays a brief "Auto-Save Performed" message in the Word statu
 
 Smart Logic: Automatically ignores unsaved "Document1" drafts to prevent annoying "Save As" pop-ups.
 
-📥 Installation Methods
+
+
+**📥 Installation Methods**
 Choose one of the following three methods to install the plugin.
 
 Method 1: The "Set and Forget" Way (Recommended)
@@ -34,7 +38,8 @@ If you downloaded the file to your Downloads folder, run this command to move it
 
 Bash
 mv ~/Downloads/AutoSavePlugin.dotm ~/Library/Group\ Containers/UBF8T346G9.Office/User\ Content.localized/Startup.localized/Word/
-Method 3: The "Easy" Way (Word Menu)
+
+**Method 3: The "Easy" Way (Word Menu)**
 Use this if you prefer using the Word interface. Note: Do not move the file after doing this, or the plugin will break.
 
 Open Microsoft Word.
@@ -45,7 +50,9 @@ Click Add... and select your AutoSavePlugin.dotm file.
 
 Ensure the box next to the filename is checked and click OK.
 
-🛠 Troubleshooting: "Grant Access" & Security
+
+
+**🛠 Troubleshooting: "Grant Access" & Security**
 1. The macOS Sandbox Prompt
 Because macOS "sandboxes" applications for security, Word may occasionally ask for permission to save a file in a specific folder for the first time.
 
@@ -63,9 +70,22 @@ The script is intentionally designed not to autosave a file that has never been 
 
 The Fix: Save your document manually once to give it a name and a location. The 10-minute timer will take over from there.
 
-⚙️ Customization
+**⚙️ Customization**
 To change the save interval (e.g., to 5 minutes), open the VBA Editor (Opt + F11), locate the AutoSavePlugin project, and change the TimeValue in the code:
 
 VBA
 ' Change "00:10:00" (10 mins) to "00:05:00" (5 mins)
 Application.OnTime When:=Now + TimeValue("00:10:00"), Name:="GlobalAutoSave"
+
+
+
+**✅ How to Verify it's Working**
+The Welcome Message: The very first time you launch Word after installation, you will see a popup confirming the "AutoSave Plugin Successfully Installed."
+
+The Status Bar: Every 10 minutes, look at the bottom-left corner of your Word window. You will see a brief message: 💾 Auto-Save Performed at [Time].
+
+The Manual Test: * Open a saved document.
+
+Press Opt + F8 (or go to Developer > Macros).
+
+If you see GlobalAutoSave in the list, the plugin is active and running.
